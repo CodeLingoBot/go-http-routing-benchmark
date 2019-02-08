@@ -399,7 +399,7 @@ func init() {
 	println()
 }
 
-// Static
+// BenchmarkAce_GithubStatic; 
 func BenchmarkAce_GithubStatic(b *testing.B) {
 	req, _ := http.NewRequest("GET", "/user/repos", nil)
 	benchRequest(b, githubAce, req)
@@ -518,7 +518,7 @@ func BenchmarkVulcan_GithubStatic(b *testing.B) {
 // 	benchRequest(b, githubZeus, req)
 // }
 
-// Param
+// BenchmarkAce_GithubParam; 
 func BenchmarkAce_GithubParam(b *testing.B) {
 	req, _ := http.NewRequest("GET", "/repos/julienschmidt/httprouter/stargazers", nil)
 	benchRequest(b, githubAce, req)
@@ -637,7 +637,7 @@ func BenchmarkVulcan_GithubParam(b *testing.B) {
 // 	benchRequest(b, githubZeus, req)
 // }
 
-// All routes
+// BenchmarkAce_GithubAll; All routes
 func BenchmarkAce_GithubAll(b *testing.B) {
 	benchRoutes(b, githubAce, githubAPI)
 }

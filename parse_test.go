@@ -181,7 +181,7 @@ func init() {
 	println()
 }
 
-// Static
+// BenchmarkAce_ParseStatic; 
 func BenchmarkAce_ParseStatic(b *testing.B) {
 	req, _ := http.NewRequest("GET", "/1/users", nil)
 	benchRequest(b, parseAce, req)
@@ -300,7 +300,7 @@ func BenchmarkVulcan_ParseStatic(b *testing.B) {
 // 	benchRequest(b, parseZeus, req)
 // }
 
-// One Param
+// BenchmarkAce_ParseParam; One Param
 func BenchmarkAce_ParseParam(b *testing.B) {
 	req, _ := http.NewRequest("GET", "/1/classes/go", nil)
 	benchRequest(b, parseAce, req)
@@ -419,7 +419,7 @@ func BenchmarkVulcan_ParseParam(b *testing.B) {
 // 	benchRequest(b, parseZeus, req)
 // }
 
-// Two Params
+// BenchmarkAce_Parse2Params; Two Params
 func BenchmarkAce_Parse2Params(b *testing.B) {
 	req, _ := http.NewRequest("GET", "/1/classes/go/123456789", nil)
 	benchRequest(b, parseAce, req)
@@ -538,7 +538,7 @@ func BenchmarkVulcan_Parse2Params(b *testing.B) {
 // 	benchRequest(b, parseZeus, req)
 // }
 
-// All Routes
+// BenchmarkAce_ParseAll; All Routes
 func BenchmarkAce_ParseAll(b *testing.B) {
 	benchRoutes(b, parseAce, parseAPI)
 }

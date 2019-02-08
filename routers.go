@@ -98,14 +98,14 @@ func init() {
 	initTraffic()
 }
 
-// Common
+// httpHandlerFunc; Common
 func httpHandlerFunc(w http.ResponseWriter, r *http.Request) {}
 
 func httpHandlerFuncTest(w http.ResponseWriter, r *http.Request) {
 	io.WriteString(w, r.RequestURI)
 }
 
-// Ace
+// aceHandle; Ace
 func aceHandle(_ *ace.C) {}
 
 func aceHandleWrite(c *ace.C) {
@@ -135,7 +135,7 @@ func loadAceSingle(method, path string, handle ace.HandlerFunc) http.Handler {
 	return router
 }
 
-// bear
+// bearHandler; 
 func bearHandler(_ http.ResponseWriter, _ *http.Request, _ *bear.Context) {}
 
 func bearHandlerWrite(w http.ResponseWriter, _ *http.Request, ctx *bear.Context) {
@@ -176,7 +176,7 @@ func loadBearSingle(method string, path string, handler bear.HandlerFunc) http.H
 	return router
 }
 
-// beego
+// beegoHandler; 
 func beegoHandler(ctx *context.Context) {}
 
 func beegoHandlerWrite(ctx *context.Context) {
@@ -239,7 +239,7 @@ func loadBeegoSingle(method, path string, handler beego.FilterFunc) http.Handler
 	return app
 }
 
-// bone
+// boneHandlerWrite; 
 func boneHandlerWrite(rw http.ResponseWriter, req *http.Request) {
 	io.WriteString(rw, bone.GetValue(req, "name"))
 }
@@ -289,7 +289,7 @@ func loadBoneSingle(method, path string, handler http.Handler) http.Handler {
 	return router
 }
 
-// Denco
+// dencoHandler; 
 func dencoHandler(w http.ResponseWriter, r *http.Request, params denco.Params) {}
 
 func dencoHandlerWrite(w http.ResponseWriter, r *http.Request, params denco.Params) {
@@ -328,7 +328,7 @@ func loadDencoSingle(method, path string, h denco.HandlerFunc) http.Handler {
 	return handler
 }
 
-// Echo
+// echoHandler; 
 func echoHandler(c echo.Context) error {
 	return nil
 }
@@ -388,7 +388,7 @@ func loadEchoSingle(method, path string, h echo.HandlerFunc) http.Handler {
 	return e
 }
 
-// Gin
+// ginHandle; Gin
 func ginHandle(_ *gin.Context) {}
 
 func ginHandleWrite(c *gin.Context) {
@@ -480,7 +480,7 @@ func loadGocraftWebSingle(method, path string, handler interface{}) http.Handler
 	return router
 }
 
-// goji
+// gojiFuncWrite; 
 func gojiFuncWrite(c goji.C, w http.ResponseWriter, r *http.Request) {
 	io.WriteString(w, c.URLParams["name"])
 }
@@ -530,7 +530,7 @@ func loadGojiSingle(method, path string, handler interface{}) http.Handler {
 	return mux
 }
 
-// goji v2 (github.com/goji/goji)
+// gojiv2Handler; v2 (github.com/goji/goji)
 func gojiv2Handler(w http.ResponseWriter, r *http.Request) {}
 
 func gojiv2HandlerWrite(w http.ResponseWriter, r *http.Request) {
@@ -586,7 +586,7 @@ func loadGojiv2Single(method, path string, handler func(http.ResponseWriter, *ht
 	return mux
 }
 
-// go-json-rest/rest
+// goJsonRestHandler; go-json-rest/rest
 func goJsonRestHandler(w rest.ResponseWriter, req *rest.Request) {}
 
 func goJsonRestHandlerWrite(w rest.ResponseWriter, req *rest.Request) {
@@ -630,7 +630,7 @@ func loadGoJsonRestSingle(method, path string, hfunc rest.HandlerFunc) http.Hand
 	return api.MakeHandler()
 }
 
-// go-restful
+// goRestfulHandler; go-restful
 func goRestfulHandler(r *restful.Request, w *restful.Response) {}
 
 func goRestfulHandlerWrite(r *restful.Request, w *restful.Response) {
@@ -695,7 +695,7 @@ func loadGoRestfulSingle(method, path string, handler restful.RouteFunction) htt
 	return wsContainer
 }
 
-// gorilla/mux
+// gorillaHandlerWrite; gorilla/mux
 func gorillaHandlerWrite(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
 	io.WriteString(w, params["name"])
@@ -724,7 +724,7 @@ func loadGorillaMuxSingle(method, path string, handler http.HandlerFunc) http.Ha
 	return m
 }
 
-// HttpRouter
+// httpRouterHandle; 
 func httpRouterHandle(_ http.ResponseWriter, _ *http.Request, _ httprouter.Params) {}
 
 func httpRouterHandleWrite(w http.ResponseWriter, _ *http.Request, ps httprouter.Params) {
@@ -754,7 +754,7 @@ func loadHttpRouterSingle(method, path string, handle httprouter.Handle) http.Ha
 	return router
 }
 
-// httpTreeMux
+// httpTreeMuxHandler; 
 func httpTreeMuxHandler(_ http.ResponseWriter, _ *http.Request, _ map[string]string) {}
 
 func httpTreeMuxHandlerWrite(w http.ResponseWriter, _ *http.Request, vars map[string]string) {
@@ -866,7 +866,7 @@ func loadKochaSingle(method, path string, handler *kochaHandler, hfunc http.Hand
 	return handler
 }
 
-// LARS
+// larsHandler; LARS
 func larsHandler(c lars.Context) {
 }
 
@@ -929,7 +929,7 @@ func loadLARSSingle(method, path string, h interface{}) http.Handler {
 	return l.Serve()
 }
 
-// Macaron
+// macaronHandler; 
 func macaronHandler() {}
 
 func macaronHandlerWrite(c *macaron.Context) string {
@@ -959,7 +959,7 @@ func loadMacaronSingle(method, path string, handler interface{}) http.Handler {
 	return m
 }
 
-// Martini
+// martiniHandler; 
 func martiniHandler() {}
 
 func martiniHandlerWrite(params martini.Params) string {
@@ -1020,7 +1020,7 @@ func loadMartiniSingle(method, path string, handler interface{}) http.Handler {
 	return martini
 }
 
-// pat
+// patHandlerWrite; pat
 func patHandlerWrite(w http.ResponseWriter, r *http.Request) {
 	io.WriteString(w, r.URL.Query().Get(":name"))
 }
@@ -1066,7 +1066,7 @@ func loadPatSingle(method, path string, handler http.Handler) http.Handler {
 	return m
 }
 
-// Possum
+// possumHandler; 
 func possumHandler(c *possum.Context) error {
 	return nil
 }
@@ -1100,7 +1100,7 @@ func loadPossumSingle(method, path string, handler possum.HandlerFunc) http.Hand
 	return router
 }
 
-// R2router
+// r2routerHandler; 
 func r2routerHandler(w http.ResponseWriter, req *http.Request, _ r2router.Params) {}
 
 func r2routerHandleWrite(w http.ResponseWriter, req *http.Request, params r2router.Params) {
@@ -1251,7 +1251,7 @@ func loadRevelSingle(method, path, action string) http.Handler {
 	return rc
 }
 
-// Rivet
+// rivetHandler; 
 func rivetHandler() {}
 
 func rivetHandlerWrite(c *rivet.Context) {
@@ -1283,7 +1283,7 @@ func loadRivetSingle(method, path string, handler interface{}) http.Handler {
 	return router
 }
 
-// Tango
+// tangoHandler; 
 func tangoHandler(ctx *tango.Context) {}
 
 func tangoHandlerWrite(ctx *tango.Context) {
@@ -1318,7 +1318,7 @@ func loadTangoSingle(method, path string, handler func(*tango.Context)) http.Han
 	return tg
 }
 
-// Tiger Tonic
+// tigerTonicHandlerWrite; Tonic
 func tigerTonicHandlerWrite(w http.ResponseWriter, r *http.Request) {
 	io.WriteString(w, r.URL.Query().Get("name"))
 }
@@ -1343,7 +1343,7 @@ func loadTigerTonicSingle(method, path string, handler http.HandlerFunc) http.Ha
 	return mux
 }
 
-// Traffic
+// trafficHandler; 
 func trafficHandler(w traffic.ResponseWriter, r *traffic.Request) {}
 
 func trafficHandlerWrite(w traffic.ResponseWriter, r *traffic.Request) {
@@ -1403,7 +1403,7 @@ func loadTrafficSingle(method, path string, handler traffic.HttpHandleFunc) http
 	return router
 }
 
-// Mailgun Vulcan
+// vulcanHandler; Mailgun Vulcan
 func vulcanHandler(w http.ResponseWriter, r *http.Request) {}
 
 func vulcanHandlerWrite(w http.ResponseWriter, r *http.Request) {
@@ -1485,7 +1485,7 @@ func loadVulcanSingle(method, path string, handler http.HandlerFunc) http.Handle
 // 	return m
 // }
 
-// Usage notice
+// main; Usage notice
 func main() {
 	fmt.Println("Usage: go test -bench=. -timeout=20m")
 	os.Exit(1)

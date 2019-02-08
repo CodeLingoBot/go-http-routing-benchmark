@@ -161,7 +161,7 @@ func init() {
 	println()
 }
 
-// Static
+// BenchmarkAce_GPlusStatic; 
 func BenchmarkAce_GPlusStatic(b *testing.B) {
 	req, _ := http.NewRequest("GET", "/people", nil)
 	benchRequest(b, gplusAce, req)
@@ -280,7 +280,7 @@ func BenchmarkVulcan_GPlusStatic(b *testing.B) {
 // 	benchRequest(b, gplusZeus, req)
 // }
 
-// One Param
+// BenchmarkAce_GPlusParam; One Param
 func BenchmarkAce_GPlusParam(b *testing.B) {
 	req, _ := http.NewRequest("GET", "/people/118051310819094153327", nil)
 	benchRequest(b, gplusAce, req)
@@ -399,7 +399,7 @@ func BenchmarkVulcan_GPlusParam(b *testing.B) {
 // 	benchRequest(b, gplusZeus, req)
 // }
 
-// Two Params
+// BenchmarkAce_GPlus2Params; Two Params
 func BenchmarkAce_GPlus2Params(b *testing.B) {
 	req, _ := http.NewRequest("GET", "/people/118051310819094153327/activities/123456789", nil)
 	benchRequest(b, gplusAce, req)
@@ -518,7 +518,7 @@ func BenchmarkVulcan_GPlus2Params(b *testing.B) {
 // 	benchRequest(b, gplusZeus, req)
 // }
 
-// All Routes
+// BenchmarkAce_GPlusAll; All Routes
 func BenchmarkAce_GPlusAll(b *testing.B) {
 	benchRoutes(b, gplusAce, gplusAPI)
 }

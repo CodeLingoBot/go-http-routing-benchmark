@@ -95,7 +95,7 @@ func benchRoutes(b *testing.B, router http.Handler, routes []route) {
 
 // Micro Benchmarks
 
-// Route with Param (no write)
+// BenchmarkAce_Param; Route with Param (no write)
 func BenchmarkAce_Param(b *testing.B) {
 	router := loadAceSingle("GET", "/user/:name", aceHandle)
 
@@ -650,7 +650,7 @@ func BenchmarkVulcan_Param20(b *testing.B) {
 // 	benchRequest(b, router, r)
 // }
 
-// Route with Param and write
+// BenchmarkAce_ParamWrite; Route with Param and write
 func BenchmarkAce_ParamWrite(b *testing.B) {
 	router := loadAceSingle("GET", "/user/:name", aceHandleWrite)
 
